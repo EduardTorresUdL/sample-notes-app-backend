@@ -1,0 +1,17 @@
+GET http://localhost:3001/api/notes
+
+###
+
+GET http://localhost:3001/api/notes/1
+
+###
+DELETE http://localhost:3001/api/notes/1
+
+###
+# Insert a note
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+    "content": "This is a note!"
+}
