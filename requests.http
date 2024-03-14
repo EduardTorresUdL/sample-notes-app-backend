@@ -1,11 +1,13 @@
+# Get all the notes
 GET http://localhost:3001/api/notes
 
 ###
-
-GET http://localhost:3001/api/notes/1
+# Delete note with ID 1
+DELETE http://localhost:3001/api/notes/1
 
 ###
-DELETE http://localhost:3001/api/notes/1
+# Get note with ID 1
+GET http://localhost:3001/api/notes/1
 
 ###
 # Insert a note
@@ -13,5 +15,58 @@ POST http://localhost:3001/api/notes
 Content-Type: application/json
 
 {
-    "content": "This is a note!"
+    "content": "This is a new note!",
+    "important": true
+}
+
+###
+# Insert a note
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+    "content": "This is a new note!"
+}
+
+###
+
+GET http://localhost:3001/api/notes/1 or 1=1
+
+###
+# This does not exist
+GET http://localhost:3001/api/dont/exists
+
+###
+# Some invalid ID
+GET http://localhost:3001/api/notes/1invalidId
+
+###
+# Create user
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+    "name": "User1",
+    "username": "user1",
+    "password": "mypass"
+}
+
+###
+# User log in
+POST http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+    "username": "user1",
+    "password": "mypass"
+}
+
+###
+# Note creation with authentication
+POST http://localhost:3001/api/notes
+Authorization: Bearer eyJhbGciOiJiUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwiaWQiOjEsImlhdCI6MTcwOTM3NTY5Mn0.EpoIll24isiu0BAyRTpieYkcqWwKKt6i9Lh_ZBLTiPs
+Content-Type: application/json
+
+{
+    "content": "This is a new note!"
 }
