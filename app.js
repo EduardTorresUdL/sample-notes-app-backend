@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require("cors")
 const { initDb } = require("./models")
 const middleware = require("./utils/middleware")
 const notesRouter = require("./controllers/notes")
@@ -6,6 +7,7 @@ const usersRouter = require("./controllers/users")
 const loginRouter = require("./controllers/login")
 
 const app = express()
+app.use(cors())
 
 initDb()
 
